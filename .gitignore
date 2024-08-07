@@ -1,0 +1,9 @@
+target/
+.idea/
+logs/
+allure-results/
+.allure/
+.env
+credentials.properties
+build
+*.iml
