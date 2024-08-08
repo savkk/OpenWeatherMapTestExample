@@ -19,7 +19,7 @@ public final class Clients {
         throw new IllegalStateException("Utility class");
     }
 
-    private static final CurrentWeatherDataApi currentWeatherDataApi =
+    private static final ApiClient defaultApiClient =
             ApiClient.api(ApiClient.Config.apiConfig().reqSpecSupplier(() ->
                     new RequestSpecBuilder()
                             .setConfig(config()
@@ -32,9 +32,9 @@ public final class Clients {
                             .setUrlEncodingEnabled(false)
                             .addQueryParam("appid", credentials.apiKey())
                             .setBaseUri(env.baseUri()))
-            ).currentWeatherData();
+            );
 
     public static CurrentWeatherDataApi openWeatherClient() {
-        return currentWeatherDataApi;
+        return defaultApiClient.currentWeatherData();
     }
 }
